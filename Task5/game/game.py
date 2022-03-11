@@ -1,14 +1,17 @@
 import random
 from .game_field_item import GameFieldItem
+from .game_state import GameState
 
 
 class Game:
     _game_field_rows_count = 7
     _game_field_cols_count = 9
     _game_field = []
+    _game_state = GameState.NOT_STARTED
 
     def __init__(self):
         self._game_field = self._new_game_field()
+        self._game_state = GameState.NOT_STARTED
 
     def _new_game_field(self):
         game_field = []
@@ -23,3 +26,15 @@ class Game:
 
     def get_game_field(self):
         return self._game_field
+
+    def start_game(self):
+        self._game_state = GameState.PLAYING
+
+    def lose_game(self):
+        self._game_state = GameState.LOST
+
+    def win_game(self):
+        self._game_state = GameState.WON
+
+    def finish_game(self):
+        self._game_state = GameState.NOT_STARTED
