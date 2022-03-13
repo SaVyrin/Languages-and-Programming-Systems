@@ -16,3 +16,6 @@ class GameFieldItem:
         for color in Color:
             if color.value == value:
                 return color
+
+    def get_color(self):
+        return self._color
