@@ -1,5 +1,3 @@
-import random
-
 from .game_field_item import GameFieldItem
 
 
@@ -17,7 +15,7 @@ class GameField:
         for row in range(0, self._GAME_FIELD_ROWS_COUNT):
             new_row = []
             for col in range(0, self._GAME_FIELD_COLS_COUNT):
-                game_field_item: GameFieldItem = GameFieldItem(row, col, random.randint(1, 5))
+                game_field_item: GameFieldItem = GameFieldItem(row, col)
                 new_row.append(game_field_item)
             game_field.append(new_row)
 
@@ -27,10 +25,33 @@ class GameField:
         first_item: GameFieldItem = self._game_field[first_row][first_col]
         second_item: GameFieldItem = self._game_field[second_row][second_col]
         bitten_items = self._get_bitten_items(first_item, second_item)
-    #     TODO : change field after move
+
+        self._move_bitten_colors_to_top(bitten_items)
+        self._new_random_bitten_colors(bitten_items)
 
         bitten_items_count = len(bitten_items)
         return bitten_items_count
+
+    def _move_bitten_colors_to_top(self, bitten_items):
+        item: GameFieldItem
+        for item in bitten_items:
+            item_row = item.get_row()
+            item_col = item.get_col()
+            while item_row > 0:
+                next_item = self._game_field[item_row - 1][item_col]
+                next_item_color = next_item.get_color()
+                item_color = item.get_color()
+
+                item.set_color(next_item_color)
+                next_item.set_color(item_color)
+
+                item_row -= 1
+
+    @staticmethod
+    def _new_random_bitten_colors(bitten_items):
+        item: GameFieldItem
+        for item in bitten_items:
+            item.set_random_color()
 
     def _get_bitten_items(self, first_item: GameFieldItem, second_item: GameFieldItem):
         bitten_total = []
