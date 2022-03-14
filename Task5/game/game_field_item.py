@@ -19,3 +19,9 @@ class GameFieldItem:
 
     def get_color(self):
         return self._color
+
+    def get_row(self):
+        return self._x
+
+    def get_col(self):
+        return self._y

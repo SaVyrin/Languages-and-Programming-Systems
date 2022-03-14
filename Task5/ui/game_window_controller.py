@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import QAbstractItemView
+
 from ..game.color import Color
 from ..game.game import Game
 
@@ -26,6 +28,8 @@ class GameWindow(QtWidgets.QMainWindow):
         table.verticalHeader().setDefaultSectionSize(int(height / 7))
         table.horizontalHeader().setVisible(False)
         table.verticalHeader().setVisible(False)
+        table.setSelectionMode(QAbstractItemView.NoSelection)
+        table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
         self.init_table(table)
         self.repaint_table(table)
@@ -38,7 +42,7 @@ class GameWindow(QtWidgets.QMainWindow):
     def init_table(table):
         for row in range(0, 7):
             for col in range(0, 9):
-                table.setItem(row, col, QtWidgets.QTableWidgetItem(col))
+                table.setItem(row, col, QtWidgets.QTableWidgetItem())
 
     def repaint_table(self, table):
         for row in range(0, 7):
@@ -62,3 +66,5 @@ class GameWindow(QtWidgets.QMainWindow):
             return QColor("#42AAFF")
         if color == Color.VIOLET:
             return QColor("#9966CC")
+
+#      TODO : add  make_move and get_game_field -> repaint
