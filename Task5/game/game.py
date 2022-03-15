@@ -20,13 +20,12 @@ class Game:
         self._game_target_score = 3000
 
     def make_move(self, first_row, first_col, second_row, second_col):
-        items_bitten_count = 0
-        self._game_field.make_move(first_row, first_col, second_row, second_col)
-    #     TODO : add items bitten
+        items_bitten_count = self._game_field.make_move(first_row, first_col, second_row, second_col)
         self._add_score(items_bitten_count)
+        self._check_win_score()
 
-    def get_game_field(self):
-        return self._game_field
+    def get_game_field_elements(self):
+        return self._game_field.get_game_elements()
 
     def start_game(self):
         self._game_state = GameState.PLAYING

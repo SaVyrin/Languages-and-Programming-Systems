@@ -10,6 +10,9 @@ class GameField:
     def __init__(self):
         self._game_field = self._new_game_field()
 
+    def get_game_elements(self):
+        return self._game_field
+
     def _new_game_field(self):
         game_field = []
         for row in range(0, self._GAME_FIELD_ROWS_COUNT):
@@ -24,13 +27,23 @@ class GameField:
     def make_move(self, first_row, first_col, second_row, second_col):
         first_item: GameFieldItem = self._game_field[first_row][first_col]
         second_item: GameFieldItem = self._game_field[second_row][second_col]
+        self._swap_colors(first_item, second_item)
         bitten_items = self._get_bitten_items(first_item, second_item)
 
         self._move_bitten_colors_to_top(bitten_items)
         self._new_random_bitten_colors(bitten_items)
 
         bitten_items_count = len(bitten_items)
+        if bitten_items_count == 0:
+            self._swap_colors(first_item, second_item)
         return bitten_items_count
+
+    @staticmethod
+    def _swap_colors(first_item: GameFieldItem, second_item: GameFieldItem):
+        first_item_color = first_item.get_color()
+        second_item_color = second_item.get_color()
+        first_item.set_color(second_item_color)
+        second_item.set_color(first_item_color)
 
     def _move_bitten_colors_to_top(self, bitten_items):
         item: GameFieldItem
@@ -63,21 +76,21 @@ class GameField:
         second_item_bitten_horizontal = self._get_bitten_horizontal(second_item)
 
         if len(first_item_bitten_vertical) >= 3:
-            bitten_total.append(first_item_bitten_vertical)
+            bitten_total += first_item_bitten_vertical
 
         if len(first_item_bitten_horizontal) >= 3:
-            bitten_total.append(first_item_bitten_horizontal)
+            bitten_total += first_item_bitten_horizontal
 
         if len(second_item_bitten_vertical) >= 3:
-            bitten_total.append(second_item_bitten_vertical)
+            bitten_total += second_item_bitten_vertical
 
         if len(second_item_bitten_horizontal) >= 3:
-            bitten_total.append(second_item_bitten_horizontal)
+            bitten_total += second_item_bitten_horizontal
 
         return bitten_total
 
     def _get_bitten_vertical(self, item: GameFieldItem):
-        bitten_list = []
+        bitten_list = [item]
 
         item_row = item.get_row()
         item_col = item.get_col()
@@ -106,7 +119,7 @@ class GameField:
         return bitten_list
 
     def _get_bitten_horizontal(self, item: GameFieldItem):
-        bitten_list = []
+        bitten_list = [item]
 
         item_row = item.get_row()
         item_col = item.get_col()

@@ -22,9 +22,11 @@ class GameFieldItem:
 
     @staticmethod
     def _convert_value_to_color(value):
+        color_index = 0
         for color in Color:
-            if color.value == value:
+            if color_index == value:
                 return color
+            color_index += 1
 
     def get_color(self):
         return self._color
