@@ -3,14 +3,38 @@ from PyQt5.QtWidgets import QGroupBox, QRadioButton
 
 
 class SettingsWindow(QtWidgets.QMainWindow):
-    def __init__(self, menu_window):
+    def __init__(self, menu_window, game_settings):
         super(SettingsWindow, self).__init__()
         self.menu_window = menu_window
         uic.loadUi('Resources/ui/forms/settings.ui', self)
 
+        self._check_actual_settings_radio_buttons(game_settings)
         self.menuButton.clicked.connect(self._menu_btn_clicked)
         self.saveSettingsButton.clicked.connect(self._change_settings_btn_clicked)
         self._remove_group_boxes_border()
+
+    def _check_actual_settings_radio_buttons(self, game_settings):
+        field_colors_group: QGroupBox = self.fieldColors
+        field_colors = field_colors_group.children()
+
+        color_mode = str(game_settings["color_mode"] + 1)
+        radio_button: QRadioButton
+        for radio_button in field_colors:
+            radio_text = radio_button.text()
+            if color_mode in radio_text:
+                radio_button.setChecked(True)
+
+        field_sizes_group: QGroupBox = self.fieldSizes
+        field_sizes = field_sizes_group.children()
+
+        rows_count = game_settings["rows_count"]
+        cols_count = game_settings["cols_count"]
+        size = str(cols_count) + " x " + str(rows_count)
+        radio_button: QRadioButton
+        for radio_button in field_sizes:
+            radio_text = radio_button.text()
+            if size in radio_text:
+                radio_button.setChecked(True)
 
     def _remove_group_boxes_border(self):
         field_sizes_group: QGroupBox = self.fieldSizes

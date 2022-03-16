@@ -111,7 +111,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>7 х 5</string>
+      <string>7 x 5</string>
      </property>
      <property name="checked">
       <bool>false</bool>
@@ -127,7 +127,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>9 х 7</string>
+      <string>9 x 7</string>
      </property>
      <property name="checked">
       <bool>true</bool>

@@ -30,6 +30,6 @@ class MenuWindow(QtWidgets.QMainWindow):
         self.hide()
 
     def settings_btn_clicked(self):
-        self.next_window = SettingsWindow(self)
+        self.next_window = SettingsWindow(self, self._game_settings)
         self.next_window.show()
         self.hide()
