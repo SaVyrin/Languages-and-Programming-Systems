@@ -13,8 +13,6 @@ class GameController:
         return self._game.get_game_field_elements()
 
     def check_clicked_item(self, clicked_item: PushButton):
-        print(clicked_item.get_col())
-        print(clicked_item.get_row())
         if self._last_clicked_item is None:
             self._last_clicked_item = clicked_item
             return

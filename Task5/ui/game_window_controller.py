@@ -57,5 +57,3 @@ class GameWindow(QtWidgets.QMainWindow):
 
                 button: PushButton = self._grid_buttons[row][col]
                 button.setStyleSheet("background-color : " + game_field_item_color_string)
-
-#      TODO : add  make_move and get_game_field -> repaint
