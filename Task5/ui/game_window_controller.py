@@ -6,16 +6,13 @@ from ..game.game_field_item import GameFieldItem
 
 
 class GameWindow(QtWidgets.QMainWindow):
-    _game_controller: GameController
+    _game_controller: GameController = GameController()
     _grid_buttons: list
 
     def __init__(self, menu_window):
-
         super(GameWindow, self).__init__()
         self.menu_window = menu_window
         uic.loadUi('Resources/ui/forms/game.ui', self)
-
-        self._game_controller = GameController()
 
         self.menuButton.clicked.connect(self.menu_btn_clicked)
         self._grid_buttons = []
