@@ -12,7 +12,7 @@ class PushButton(QPushButton):
         self._row = row
         self._col = col
         self.setMinimumSize(QSize(53, 50))
-        self.setMaximumSize(QSize(58, 58))
+        self.setMaximumSize(QSize(100, 100))
 
     def get_row(self):
         return self._row

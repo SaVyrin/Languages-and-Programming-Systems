@@ -7,17 +7,21 @@ class GameFieldItem:
     _x = 0
     _y = 0
     _color = Color.DEFAULT
+    _color_mode = 0
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, color_mode):
         self._x = x
         self._y = y
+        self._color_mode = color_mode
         self.set_random_color()
 
     def set_color(self, color: Color):
         self._color = color
 
     def set_random_color(self):
-        value = random.randint(1, 5)
+        first_color_index = 1 + (5 * self._color_mode)
+        last_color_index = 5 + (5 * self._color_mode)
+        value = random.randint(first_color_index, last_color_index)
         self._color = self._convert_value_to_color(value)
 
     @staticmethod

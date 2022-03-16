@@ -12,8 +12,8 @@ class Game:
     _game_score = 0
     _game_target_score = 0
 
-    def __init__(self):
-        self._game_field = GameField()
+    def __init__(self, color_mode, rows_count, cols_count):
+        self._game_field = GameField(color_mode, rows_count, cols_count)
         self._game_state = GameState.NOT_STARTED
         self._game_timer = 300
         self._game_score = 0

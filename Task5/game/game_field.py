@@ -2,23 +2,25 @@ from .game_field_item import GameFieldItem
 
 
 class GameField:
-    _GAME_FIELD_ROWS_COUNT = 7
-    _GAME_FIELD_COLS_COUNT = 9
+    _game_field_rows_count = 0
+    _game_field_cols_count = 0
 
     _game_field = []
 
-    def __init__(self):
-        self._game_field = self._new_game_field()
+    def __init__(self, color_mode, rows_count, cols_count):
+        self._game_field_rows_count = rows_count
+        self._game_field_cols_count = cols_count
+        self._game_field = self._new_game_field(color_mode)
 
     def get_game_elements(self):
         return self._game_field
 
-    def _new_game_field(self):
+    def _new_game_field(self, color_mode):
         game_field = []
-        for row in range(0, self._GAME_FIELD_ROWS_COUNT):
+        for row in range(0, self._game_field_rows_count):
             new_row = []
-            for col in range(0, self._GAME_FIELD_COLS_COUNT):
-                game_field_item: GameFieldItem = GameFieldItem(row, col)
+            for col in range(0, self._game_field_cols_count):
+                game_field_item: GameFieldItem = GameFieldItem(row, col, color_mode)
                 new_row.append(game_field_item)
             game_field.append(new_row)
 
@@ -111,7 +113,7 @@ class GameField:
             up_row -= 1
 
         down_row = item_row + 1
-        while down_row <= (self._GAME_FIELD_ROWS_COUNT - 1):
+        while down_row <= (self._game_field_rows_count - 1):
             current_item = self._game_field[down_row][item_col]
             if item_color == current_item.get_color():
                 bitten_list.append(current_item)
@@ -140,7 +142,7 @@ class GameField:
             left_col -= 1
 
         right_col = item_col + 1
-        while right_col <= (self._GAME_FIELD_COLS_COUNT - 1):
+        while right_col <= (self._game_field_cols_count - 1):
             current_item = self._game_field[item_row][right_col]
             if item_color == current_item.get_color():
                 bitten_list.append(current_item)

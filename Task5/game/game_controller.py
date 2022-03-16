@@ -5,9 +5,31 @@ from Task5.ui.button import PushButton
 class GameController:
     _last_clicked_item: PushButton = None
     _game: Game
+    _color_mode = 0
+    _rows_count = 5
+    _cols_count = 7
 
     def __init__(self):
-        self._game = Game()
+        self._new_game()
+
+    def set_game_settings(self, game_settings: dict):
+        color_mode = game_settings["color_mode"]
+        rows_count = game_settings["rows_count"]
+        cols_count = game_settings["cols_count"]
+
+        self._change_color_mode(color_mode)
+        self._change_game_field_size(rows_count, cols_count)
+        self._new_game()
+
+    def _new_game(self):
+        self._game = Game(self._color_mode, self._rows_count, self._cols_count)
+
+    def _change_color_mode(self, color_mode):
+        self._color_mode = color_mode
+
+    def _change_game_field_size(self, rows_count, cols_count):
+        self._rows_count = rows_count
+        self._cols_count = cols_count
 
     def get_game_field_elements(self):
         return self._game.get_game_field_elements()
