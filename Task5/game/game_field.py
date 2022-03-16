@@ -30,8 +30,8 @@ class GameField:
         self._swap_colors(first_item, second_item)
         bitten_items = self._get_bitten_items(first_item, second_item)
 
-        self._move_bitten_colors_to_top(bitten_items)
         self._new_random_bitten_colors(bitten_items)
+        self._move_bitten_colors_to_top(bitten_items)
 
         bitten_items_count = len(bitten_items)
         if bitten_items_count == 0:
@@ -50,13 +50,15 @@ class GameField:
         for item in bitten_items:
             item_row = item.get_row()
             item_col = item.get_col()
+
             while item_row > 0:
+                prev_item = self._game_field[item_row][item_col]
                 next_item = self._game_field[item_row - 1][item_col]
                 next_item_color = next_item.get_color()
-                item_color = item.get_color()
+                prev_item_color = prev_item.get_color()
 
-                item.set_color(next_item_color)
-                next_item.set_color(item_color)
+                prev_item.set_color(next_item_color)
+                next_item.set_color(prev_item_color)
 
                 item_row -= 1
 
@@ -67,7 +69,7 @@ class GameField:
             item.set_random_color()
 
     def _get_bitten_items(self, first_item: GameFieldItem, second_item: GameFieldItem):
-        bitten_total = []
+        bitten_total = set()
 
         first_item_bitten_vertical = self._get_bitten_vertical(first_item)
         first_item_bitten_horizontal = self._get_bitten_horizontal(first_item)
@@ -76,16 +78,16 @@ class GameField:
         second_item_bitten_horizontal = self._get_bitten_horizontal(second_item)
 
         if len(first_item_bitten_vertical) >= 3:
-            bitten_total += first_item_bitten_vertical
+            bitten_total.update(first_item_bitten_vertical)
 
         if len(first_item_bitten_horizontal) >= 3:
-            bitten_total += first_item_bitten_horizontal
+            bitten_total.update(first_item_bitten_horizontal)
 
         if len(second_item_bitten_vertical) >= 3:
-            bitten_total += second_item_bitten_vertical
+            bitten_total.update(second_item_bitten_vertical)
 
         if len(second_item_bitten_horizontal) >= 3:
-            bitten_total += second_item_bitten_horizontal
+            bitten_total.update(second_item_bitten_horizontal)
 
         return bitten_total
 
