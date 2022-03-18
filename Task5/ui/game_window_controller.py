@@ -1,5 +1,3 @@
-import time
-
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QLabel
 
@@ -29,13 +27,6 @@ class GameWindow(QtWidgets.QMainWindow):
         self._game_controller = GameController()
         self._repaint_game_elements()
         self._update_score_label()
-
-    def update_time_label(self):
-        label: QLabel = self.time_label
-        while True:
-            game_time = self._game_controller.get_game_time()
-            label.setText(str(game_time))
-            time.sleep(1000)
 
     def _check_if_game_finished(self):
         if self._game_controller.check_if_game_finished():
