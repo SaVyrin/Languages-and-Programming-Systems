@@ -7,8 +7,8 @@ class RulesWindow(QtWidgets.QMainWindow):
         self.menu_window = menu_window
         uic.loadUi('Resources/ui/forms/rules.ui', self)
 
-        self.menuButton.clicked.connect(self.menu_btn_clicked)
+        self.menuButton.clicked.connect(self._menu_btn_clicked)
 
-    def menu_btn_clicked(self):
+    def _menu_btn_clicked(self):
         self.menu_window.show()
         self.close()

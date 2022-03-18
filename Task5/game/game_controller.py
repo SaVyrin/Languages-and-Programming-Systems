@@ -20,6 +20,16 @@ class GameController:
         self._change_color_mode(color_mode)
         self._change_game_field_size(rows_count, cols_count)
         self._new_game()
+        # self._game.start_game()
+
+    def get_game_time(self):
+        return self._game.get_game_time()
+
+    def get_game_score(self):
+        return self._game.get_game_score()
+
+    def check_if_game_finished(self):
+        return self._game.is_game_finished()
 
     def _new_game(self):
         self._game = Game(self._color_mode, self._rows_count, self._cols_count)

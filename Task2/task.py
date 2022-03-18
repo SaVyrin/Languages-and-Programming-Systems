@@ -42,4 +42,5 @@ if __name__ == '__main__':
         [1, 3, 4, 5, 6, 7]
     ]
     result_list = sort_list_by_rows(original_list)
+    print(result_list)
     print_pretty_matrix(result_list)

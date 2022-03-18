@@ -48,7 +48,7 @@ class GameField:
         second_item.set_color(first_item_color)
 
     def _move_bitten_colors_to_top(self, bitten_items):
-        item: GameFieldItem
+        itemZ: GameFieldItem
         # Need sort to avoid moving another items colors
         bitten_items.sort(key=lambda item: item.get_row())
         for item in bitten_items:
