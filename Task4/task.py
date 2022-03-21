@@ -34,8 +34,7 @@ units = (
     'шесть', 'семь', 'восемь', 'девять'
 )
 
-tens_inclusive = (
-    '00',
+tens_exclusive = (
     'десять', 'одиннадцать',
     'двенадцать', 'тринадцать',
     'четырнадцать', 'пятнадцать',
@@ -44,7 +43,7 @@ tens_inclusive = (
 )
 
 tens = (
-    '00', '10',
+    '', '',
     'двадцать', 'тридцать',
     'сорок', 'пятьдесят',
     'шестьдесят', 'семьдесят',
@@ -52,7 +51,7 @@ tens = (
 )
 
 hundreds = (
-    '000',
+    '',
     'сто', 'двести',
     'триста', 'четыреста',
     'пятьсот', 'шестьсот',
@@ -70,6 +69,9 @@ minus = 'минус'
 
 
 def convert_to_string(number_array: list):
+    if len(number_array) == 1 and number_array[0][0] == 0:
+        return units[0]
+
     current_order = len(number_array) - 2
 
     result_string = ""
@@ -85,7 +87,7 @@ def convert_to_string(number_array: list):
             ten = nums[0]
             unit = nums[1]
 
-            result_string += process_tens(ten)
+            result_string += process_tens(ten, unit)
             result_string += process_units(ten, unit, current_order)
 
         if len(nums) == 3:
@@ -94,7 +96,7 @@ def convert_to_string(number_array: list):
             unit = nums[2]
 
             result_string += process_hundreds(hundred, ten, unit)
-            result_string += process_tens(ten)
+            result_string += process_tens(ten, unit)
             result_string += process_units(ten, unit, current_order)
 
         if current_order >= 0:
@@ -118,9 +120,9 @@ def process_units(ten: int, unit: int, order: int):
         return units[unit]  # всё остальное
 
 
-def process_tens(ten: int):
+def process_tens(ten: int, unit: int):
     if ten == 1:
-        return tens_inclusive[ten]  # 10, 11, 12, 13, ... 19
+        return tens_exclusive[unit]  # 10, 11, 12, 13, ... 19
     elif ten != 0:
         return tens[ten] + " "  # 20, 30, 40, ... 90
     else:

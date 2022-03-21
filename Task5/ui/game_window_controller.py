@@ -11,7 +11,6 @@ class GameWindow(QtWidgets.QMainWindow):
     _game_controller: GameController = GameController()
     _grid_buttons: list
 
-
     def __init__(self, menu_window, game_settings):
         super(GameWindow, self).__init__()
         self.menu_window = menu_window

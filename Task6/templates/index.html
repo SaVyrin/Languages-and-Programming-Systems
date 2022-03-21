@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Тег TEXTAREA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <div class="pep8_checker">
+        <div class="mistakes_container">
+            <textarea class="mistakes" rows="10" cols="45" name="mistakes" readonly>{{ mistakes }}</textarea>
+        </div>
+        <div class="editor_container">
+            <textarea name="numeration" id="editor_numeration" cols="30" rows="10" class="editor_numeration" readonly>{{ lines_numeration }}</textarea>
+            <form class="editor_form" action="{{ url_for('index') }}" method="post">
+                <textarea class="editor" id="editor" rows="10" cols="45" name="text">{{ text }}</textarea>
+                <input class="editor_button" type="submit">
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>

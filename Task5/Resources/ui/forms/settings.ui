@@ -47,7 +47,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="saveSettingsButton">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>290</x>
       <y>360</y>
       <width>251</width>
       <height>61</height>

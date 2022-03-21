@@ -1,0 +1,91 @@
+body {
+    background-color: #444;
+    padding-top: 35px;
+    padding-right: 10px;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #bbb;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mistakes_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mistakes {
+    position: absolute;
+    top: 45px;
+    left: 30px;
+
+    width: 340px;
+    height: 650px;
+    background-color: #333;
+    color: #fdfdfd;
+    font-size: 14px;
+}
+
+.editor_numeration {
+    position: absolute;
+    top: 45px;
+    right: 1074px;
+
+    width: 50px;
+    height: 650px;
+    background-color: #343434;
+    color: #fdfdfd;
+    font-size: 14px;
+
+    border-right: 1px solid #444;
+}
+
+.editor {
+    position: absolute;
+    top: 45px;
+    right: 30px;
+
+    width: 1040px;
+    height: 650px;
+    background-color: #333;
+    color: #fdfdfd;
+    font-size: 14px;
+}
+
+.editor_button {
+    position: absolute;
+    bottom: 65px;
+    left: 30%;
+
+    background-color: #393939;
+    color: #fdfdfd;
+    border: 2px solid #4d4d4d;
+}
+
+.editor_button:focus {
+    border: 2px solid #6d6d6d;
+}
