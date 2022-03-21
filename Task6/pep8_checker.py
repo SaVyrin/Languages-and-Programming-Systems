@@ -46,11 +46,12 @@ class Pep8Checker:
 
     def check_indentation(self):
         # self._text_lines = self._check_redundant_whitespaces()  # можно сразу исправить(не факт)
-        self._text_lines = self._check_def_blank_lines()  # можно сразу исправить
-        self.check_left_whitespaces_count()  # TODO:готово
-        self._text_lines = self._check_imports()  # TODO:готово
-        self._text_lines = self._check_file_ending_with_blank_line()  # TODO:готово
-        self._check_maximum_line_length()  # TODO:готово
+        self._text_lines = self._check_redundant_blank_lines()  # TODO : проверить
+        self._text_lines = self._check_def_blank_lines()  # TODO : проверить
+        self.check_left_whitespaces_count()  # TODO : готово
+        self._text_lines = self._check_imports()  # TODO : готово
+        self._text_lines = self._check_file_ending_with_blank_line()  # TODO : готово
+        self._check_maximum_line_length()  # TODO : готово
 
     def check_naming(self):
         line_index = 1
@@ -100,17 +101,64 @@ class Pep8Checker:
                 self._mistakes.append(f"Too long line in line: {line_index}")
             line_index += 1
 
+    def _check_redundant_blank_lines(self):
+        text_lines = self._text_lines
+
+        result_lines = []
+        in_class = False
+        blank_lines_count = 0
+        for line in text_lines:
+            if line.isspace() or line == "":
+                if in_class and blank_lines_count == 1:
+                    continue
+                elif not in_class and blank_lines_count == 2:
+                    continue
+                else:
+                    result_lines.append(line)
+                    blank_lines_count += 1
+                    continue
+            else:
+                blank_lines_count = 0
+                result_lines.append(line)
+
+            operands = line.split()
+            if operands[0] == "class":
+                in_class = True
+
+            if operands[0] != "class" and in_class and line[0] != " ":
+                in_class = False
+
+        return result_lines
+
     def _check_def_blank_lines(self):
         text_lines = self._text_lines
 
         result_lines = []
+        in_class = False
+        blank_lines_count = 0
         for line in text_lines:
             if line.isspace() or line == "":
+                blank_lines_count += 1
+                result_lines.append(line)
                 continue
 
             operands = line.split()
+            if operands[0] != "def":
+                blank_lines_count = 0
+
+            if operands[0] == "class":
+                in_class = True
+
+            if operands[0] != "class" and in_class and line[0] != " ":
+                in_class = False
+
             if operands[0] == "def" and line is not text_lines[0]:
-                result_lines.append("")
+                if in_class and blank_lines_count < 1:
+                    result_lines.append("")
+                elif not in_class and blank_lines_count < 2:
+                    needed_blank_lines_count = 2 - blank_lines_count
+                    for blank_line in range(0, needed_blank_lines_count):
+                        result_lines.append("")
 
             result_lines.append(line)
         return result_lines
@@ -122,7 +170,7 @@ class Pep8Checker:
         if last_line_index >= 0:
             last_line = result_lines[last_line_index]
 
-            if not last_line.isspace():
+            if not last_line.isspace() and not last_line == "":
                 result_lines.append("")
 
         return result_lines
