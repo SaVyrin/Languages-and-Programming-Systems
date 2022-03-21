@@ -89,7 +89,7 @@ class Pep8Checker:
                 left_spaces_count += 1
 
             if left_spaces_count % 4 != 0:
-                self._mistakes.append(f"Incorrect left spaces count in line: {line_index}")
+                self._mistakes.append(f"Incorrect left spaces count({left_spaces_count}) in line: {line_index}")
 
             line_index += 1
 
