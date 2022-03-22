@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, uic
 
+from .about_window_controller import AboutWindow
 from .finish_dialog_controller import FinishDialog
 from .game_window_controller import GameWindow
 from .rules_window_controller import RulesWindow
@@ -17,6 +18,7 @@ class MenuWindow(QtWidgets.QMainWindow):
         self.startButton.clicked.connect(self._start_btn_clicked)
         self.rulesButton.clicked.connect(self._rules_btn_clicked)
         self.settingsButton.clicked.connect(self._settings_btn_clicked)
+        self.aboutButton.clicked.connect(self._about_btn_clicked)
 
     def get_game_settings(self):
         return self._game_settings
@@ -33,5 +35,10 @@ class MenuWindow(QtWidgets.QMainWindow):
 
     def _settings_btn_clicked(self):
         self.next_window = SettingsWindow(self, self._game_settings)
+        self.next_window.show()
+        self.hide()
+
+    def _about_btn_clicked(self):
+        self.next_window = AboutWindow(self)
         self.next_window.show()
         self.hide()
