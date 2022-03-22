@@ -1,14 +1,13 @@
 from PyQt5 import QtWidgets, uic
 
 from .about_window_controller import AboutWindow
-from .finish_dialog_controller import FinishDialog
 from .game_window_controller import GameWindow
 from .rules_window_controller import RulesWindow
 from .settings_window_controller import SettingsWindow
 
 
 class MenuWindow(QtWidgets.QMainWindow):
-    _game_settings = {"color_mode": 0, "rows_count": 7, "cols_count": 9}
+    _game_settings = {"color_mode": 0, "rows_count": 7, "cols_count": 9, "max_score": 0}
 
     def __init__(self):
         super(MenuWindow, self).__init__()

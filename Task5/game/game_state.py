@@ -7,3 +7,4 @@ class GameState(Enum):
     STOPPED = 2,
     WON = 3,
     LOST = 4
+    FINISHED = 5

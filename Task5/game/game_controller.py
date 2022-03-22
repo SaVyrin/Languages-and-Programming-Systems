@@ -8,27 +8,36 @@ class GameController:
     _color_mode = 0
     _rows_count = 5
     _cols_count = 7
+    _max_score = 0
 
-    def __init__(self):
+    def __init__(self, game_settings: dict):
+        self.set_game_settings(game_settings)
         self._new_game()
 
     def set_game_settings(self, game_settings: dict):
         color_mode = game_settings["color_mode"]
         rows_count = game_settings["rows_count"]
         cols_count = game_settings["cols_count"]
+        max_score = game_settings["max_score"]
 
         self._change_color_mode(color_mode)
         self._change_game_field_size(rows_count, cols_count)
-        self._new_game()
+        self._change_max_score(max_score)
 
     def get_game_score(self):
         return self._game.get_game_score()
+
+    def get_game_max_score(self):
+        return self._game.get_game_max_score()
+
+    def get_moves_count(self):
+        return self._game.get_game_moves_count()
 
     def check_if_game_finished(self):
         return self._game.is_game_finished()
 
     def _new_game(self):
-        self._game = Game(self._color_mode, self._rows_count, self._cols_count)
+        self._game = Game(self._color_mode, self._rows_count, self._cols_count, self._max_score)
 
     def _change_color_mode(self, color_mode):
         self._color_mode = color_mode
@@ -36,6 +45,9 @@ class GameController:
     def _change_game_field_size(self, rows_count, cols_count):
         self._rows_count = rows_count
         self._cols_count = cols_count
+
+    def _change_max_score(self, max_score):
+        self._max_score = max_score
 
     def get_game_field_elements(self):
         return self._game.get_game_field_elements()
