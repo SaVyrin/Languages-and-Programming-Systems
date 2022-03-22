@@ -1,3 +1,6 @@
+import re
+
+
 class Pep8Checker:
     _text_lines = []
     _mistakes = []
@@ -47,17 +50,18 @@ class Pep8Checker:
     def check_indentation(self):
         self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
         self._text_lines = self._check_comments()  # TODO : готово
-        # check def arguments
+        self._text_lines = self._check_parenthesis("\(", "\)")  # проверить
+        self._text_lines = self._check_parenthesis("\[", "\]")  # проверить
+        self._text_lines = self._check_parenthesis("\{", "\}")  # проверить
         # check multi line arguments
         # check ; :
-        # check () [] {}
         # check = + - / * ** % //
         # check one line constructions (constructions after :)
 
-        self._text_lines = self._check_redundant_blank_lines()  # TODO : проверить
-        self._text_lines = self._check_def_blank_lines()  # TODO : проверить
-        self.check_left_whitespaces_count()  # TODO : готово
         self._text_lines = self._check_imports()  # TODO : готово
+        self._text_lines = self._check_redundant_blank_lines()  # проверить
+        self._text_lines = self._check_def_blank_lines()  # проверить
+        self.check_left_whitespaces_count()  # TODO : готово
         self._text_lines = self._check_file_ending_with_blank_line()  # TODO : готово
         self._check_maximum_line_length()  # TODO : готово
 
@@ -163,6 +167,22 @@ class Pep8Checker:
 
             if operands[0] != "class" and in_class and line[0] != " ":
                 in_class = False
+
+        return result_lines
+
+    def _check_parenthesis(self, parenthesis1, parenthesis2):
+        result_lines = []
+
+        for line in self._text_lines:
+            result_line = line
+            result = re.findall(f"{parenthesis1}(.*?){parenthesis2}", line)
+            result_in_string = re.search(f"\".*{parenthesis1}(.*?){parenthesis2}.*\"", line)
+
+            if result is not None and result_in_string is None:
+                for res in result:
+                    arguments = res
+                    result_line = result_line.replace(arguments, arguments.strip())
+            result_lines.append(result_line)
 
         return result_lines
 
