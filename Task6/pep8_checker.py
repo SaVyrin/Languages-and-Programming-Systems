@@ -45,7 +45,7 @@ class Pep8Checker:
         return lines_numeration
 
     def check_indentation(self):
-        # self._text_lines = self._check_redundant_whitespaces()  # можно сразу исправить(не факт)
+        self._text_lines = self._check_duplicate_whitespaces()  # можно сразу исправить(не факт)
         self._text_lines = self._check_redundant_blank_lines()  # TODO : проверить
         self._text_lines = self._check_def_blank_lines()  # TODO : проверить
         self.check_left_whitespaces_count()  # TODO : готово
@@ -67,16 +67,21 @@ class Pep8Checker:
 
             line_index += 1
 
-    def _check_redundant_whitespaces(self):
+    def _check_duplicate_whitespaces(self):
         text_lines = self._text_lines
 
         result_lines = []
         for line in text_lines:
+            spaces = ""
+            for sign in line:
+                if sign != " ":
+                    break
+                spaces += " "
 
             result_line = " ".join(line.split())
+            result_line = spaces + result_line
 
-            if result_line != "":
-                result_lines.append(result_line)
+            result_lines.append(result_line)
 
         return result_lines
 
