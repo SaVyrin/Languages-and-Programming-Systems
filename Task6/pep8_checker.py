@@ -45,7 +45,15 @@ class Pep8Checker:
         return lines_numeration
 
     def check_indentation(self):
-        self._text_lines = self._check_duplicate_whitespaces()  # можно сразу исправить(не факт)
+        self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
+        self._text_lines = self._check_comments()  # TODO : готово
+        # check def arguments
+        # check multi line arguments
+        # check ; :
+        # check () [] {}
+        # check = + - / * ** % //
+        # check one line constructions (constructions after :)
+
         self._text_lines = self._check_redundant_blank_lines()  # TODO : проверить
         self._text_lines = self._check_def_blank_lines()  # TODO : проверить
         self.check_left_whitespaces_count()  # TODO : готово
@@ -85,6 +93,28 @@ class Pep8Checker:
 
         return result_lines
 
+    def _check_comments(self):
+        text_lines = self._text_lines
+
+        result_lines = []
+        for line in text_lines:
+            result_line = line
+
+            if "#" in line:
+                comment_line = line.split("#")
+                comment = comment_line[1]
+                comment = comment.strip()
+                result_line = f"# {comment}"
+
+                if comment_line[0] != "" and not comment_line[0].isspace():
+                    result_line = comment_line[0].rstrip() + "  " + result_line
+                else:
+                    result_line = comment_line[0] + result_line
+
+            result_lines.append(result_line)
+
+        return result_lines
+
     def check_left_whitespaces_count(self):
         line_index = 1
         for line in self._text_lines:
@@ -95,7 +125,8 @@ class Pep8Checker:
                 left_spaces_count += 1
 
             if left_spaces_count % 4 != 0:
-                self._mistakes.append(f"Incorrect left spaces count({left_spaces_count}) in line: {line_index}")
+                self._mistakes.append(
+                    f"Indentation is not multiple for four({left_spaces_count}) in line: {line_index}")
 
             line_index += 1
 
