@@ -10,8 +10,6 @@ def index():
     if request.method == 'POST':
         text = request.form.get('text')
         pep8_checker = Pep8Checker(text)
-        pep8_checker.check_indentation()  # TODO : finish
-        pep8_checker.check_naming()  # finished
         result_text = pep8_checker.get_text()
         lines_numeration = pep8_checker.get_lines_numeration()
         mistakes_string = pep8_checker.get_mistakes_string()
