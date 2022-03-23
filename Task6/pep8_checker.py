@@ -129,6 +129,8 @@ class Pep8Checker:
             result = re.findall(f"\s*[:;]\s*", line)
 
             for res in result:
+                if re.search(f"(\".*){res}(.*\")", line) is not None:
+                    continue
                 arguments = res
                 result_line = result_line.replace(arguments, arguments.strip() + " ")
 
@@ -144,6 +146,8 @@ class Pep8Checker:
             result = re.findall(f"\s*[+\-*/=%<>]\s*", line)
 
             for res in result:
+                if re.search(f"(\".*){res}(.*\")", line) is not None:
+                    continue
                 arguments = res
                 result_line = result_line.replace(arguments, " " + arguments.strip() + " ")
 
@@ -163,6 +167,8 @@ class Pep8Checker:
                 result = re.findall(regex, line)
 
                 for res in result:
+                    if re.search(f"(\".*){res}(.*\")", line) is not None:
+                        continue
                     arguments = res
                     result_line = result_line.replace(arguments, arguments.replace(" ", ""))
 
@@ -174,6 +180,8 @@ class Pep8Checker:
         line_index = 1
         for line in self._text_lines:
             line_split = line.split()
+            if re.search(f"(\".*)[;:](.*\")", line) is not None:
+                continue
             if "if" in line_split or "for" in line_split or "while" in line_split:
                 colon_split = line.split(":")
                 right_colon_split = ""
