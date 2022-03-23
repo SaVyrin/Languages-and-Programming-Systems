@@ -11,21 +11,24 @@ class Pep8Corrector:
         return self._text_lines
 
     def check_indentation(self):
-        self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
+        self._text_lines = self._check_imports()
 
-        self._text_lines = self._check_parenthesis("\(", "\)")  # не работает при ((фыв), (фаы))
-        self._text_lines = self._check_parenthesis("\[", "\]")  # проверить
-        self._text_lines = self._check_parenthesis("\{", "\}")  # проверить
-        self._text_lines = self._check_colon_and_semicolon()  # баг - больше пробелов, чем надо
-        self._text_lines = self._check_single_math_operators()  # TODO : готово
-        self._text_lines = self._check_double_math_operators()  # TODO : готово
+        self._text_lines = self._check_parenthesis("\(", "\)")
+        self._text_lines = self._check_parenthesis("\[", "\]")
+        self._text_lines = self._check_parenthesis("\{", "\}")
 
-        self._text_lines = self._check_comments()  # TODO : готово
-        self._text_lines = self._check_imports()  # TODO : готово
-        self._text_lines = self._check_redundant_blank_lines()  # проверить
-        self._text_lines = self._check_def_blank_lines()  # проверить
-        self._text_lines = self._check_file_ending_with_blank_line()  # TODO : готово
-        self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
+        self._text_lines = self._check_colon_and_semicolon()
+
+        self._text_lines = self._check_single_math_operators()
+        self._text_lines = self._check_double_math_operators()
+
+        self._text_lines = self._check_comments()
+
+        self._text_lines = self._check_redundant_blank_lines()
+        self._text_lines = self._check_def_blank_lines()
+        self._text_lines = self._check_file_ending_with_blank_line()
+
+        self._text_lines = self._check_duplicate_whitespaces()
 
     def _check_duplicate_whitespaces(self):
         text_lines = self._text_lines
