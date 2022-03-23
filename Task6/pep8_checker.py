@@ -49,21 +49,23 @@ class Pep8Checker:
 
     def check_indentation(self):
         self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
-        self._text_lines = self._check_comments()  # TODO : готово
-        self._text_lines = self._check_parenthesis("\(", "\)")  # проверить
+
+        self._text_lines = self._check_parenthesis("\(", "\)")  # не работает при ((фыв), (фаы))
         self._text_lines = self._check_parenthesis("\[", "\]")  # проверить
         self._text_lines = self._check_parenthesis("\{", "\}")  # проверить
-        # check multi line arguments
-        # check ; :
-        # check = + - / * ** % //
-        # check one line constructions (constructions after :)
+        self._text_lines = self._check_colon_and_semicolon()  # баг - больше пробелов, чем надо
+        self._text_lines = self._check_single_math_operators()  # TODO : готово
+        self._text_lines = self._check_double_math_operators()  # TODO : готово
+        self._check_one_line_constructions()
 
+        self._text_lines = self._check_comments()  # TODO : готово
         self._text_lines = self._check_imports()  # TODO : готово
         self._text_lines = self._check_redundant_blank_lines()  # проверить
         self._text_lines = self._check_def_blank_lines()  # проверить
-        self.check_left_whitespaces_count()  # TODO : готово
+        self._check_left_whitespaces_count()  # TODO : готово
         self._text_lines = self._check_file_ending_with_blank_line()  # TODO : готово
         self._check_maximum_line_length()  # TODO : готово
+        self._text_lines = self._check_duplicate_whitespaces()  # TODO : готово
 
     def check_naming(self):
         line_index = 1
@@ -119,7 +121,71 @@ class Pep8Checker:
 
         return result_lines
 
-    def check_left_whitespaces_count(self):
+    def _check_colon_and_semicolon(self):
+        result_lines = []
+
+        for line in self._text_lines:
+            result_line = line
+            result = re.findall(f"\s*[:;]\s*", line)
+
+            for res in result:
+                arguments = res
+                result_line = result_line.replace(arguments, arguments.strip() + " ")
+
+            result_lines.append(result_line)
+
+        return result_lines
+
+    def _check_single_math_operators(self):
+        result_lines = []
+
+        for line in self._text_lines:
+            result_line = line
+            result = re.findall(f"\s*[+\-*/=%<>]\s*", line)
+
+            for res in result:
+                arguments = res
+                result_line = result_line.replace(arguments, " " + arguments.strip() + " ")
+
+            result_lines.append(result_line)
+
+        return result_lines
+
+    def _check_double_math_operators(self):
+        result_lines = []
+
+        for line in self._text_lines:
+            result_line = line
+
+            for regex in ["(/\s+/)", "(\*\s+\*)", "(\=\s+\=)",
+                          "(<\s+<)", "(>\s+>)", "(<\s+=)", "(>\s+=)",
+                          "(\+\s+=)", "(\*\s+=)", "(/\s+=)", "(-\s+=)"]:
+                result = re.findall(regex, line)
+
+                for res in result:
+                    arguments = res
+                    result_line = result_line.replace(arguments, arguments.replace(" ", ""))
+
+            result_lines.append(result_line)
+
+        return result_lines
+
+    def _check_one_line_constructions(self):
+        line_index = 1
+        for line in self._text_lines:
+            line_split = line.split()
+            if "if" in line_split or "for" in line_split or "while" in line_split:
+                colon_split = line.split(":")
+                right_colon_split = ""
+                if len(colon_split) > 1:
+                    right_colon_split = colon_split[1]
+                if not right_colon_split.isspace() and right_colon_split != "":
+                    self._mistakes.append(f"Multiple statements on one line(colon): {line_index}")
+            if ";" in line:
+                self._mistakes.append(f"Multiple statements on one line(semicolon): {line_index}")
+            line_index += 1
+
+    def _check_left_whitespaces_count(self):
         line_index = 1
         for line in self._text_lines:
             left_spaces_count = 0
@@ -178,7 +244,7 @@ class Pep8Checker:
             result = re.findall(f"{parenthesis1}(.*?){parenthesis2}", line)
             result_in_string = re.search(f"\".*{parenthesis1}(.*?){parenthesis2}.*\"", line)
 
-            if result is not None and result_in_string is None:
+            if result_in_string is None:
                 for res in result:
                     arguments = res
                     result_line = result_line.replace(arguments, arguments.strip())
