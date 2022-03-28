@@ -44,6 +44,7 @@ class GameField:
     def _swap_colors(first_item: GameFieldItem, second_item: GameFieldItem):
         first_item_color = first_item.get_color()
         second_item_color = second_item.get_color()
+
         first_item.set_color(second_item_color)
         second_item.set_color(first_item_color)
 

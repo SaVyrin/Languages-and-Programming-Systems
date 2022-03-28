@@ -1,5 +1,36 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtGui
 from PyQt5.QtWidgets import QGroupBox, QRadioButton
+
+settings_style_sheet = """
+SettingsWindow {
+    border-image: url(Resources/images/bckg.jpg) 0 0 0 0 stretch stretch;
+}
+QPushButton {
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 3px solid #111;
+}
+
+QPushButton:hover {
+    background-color: rgba(183, 30, 28, 0.8);
+    border: 3px solid #111;
+}
+QPushButton:pressed {
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 3px solid #aaa;
+}
+QRadioButton::indicator::unchecked 
+{
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 1px solid #222;
+    border-radius: 8px;
+}
+QRadioButton::indicator::checked 
+{
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 3px solid rgba(183, 30, 28, 0.8);
+    border-radius: 8px;
+}
+"""
 
 
 class SettingsWindow(QtWidgets.QMainWindow):
@@ -7,6 +38,9 @@ class SettingsWindow(QtWidgets.QMainWindow):
         super(SettingsWindow, self).__init__()
         self.menu_window = menu_window
         uic.loadUi('Resources/ui/forms/settings.ui', self)
+
+        self.setStyleSheet(settings_style_sheet)
+        self.setWindowIcon(QtGui.QIcon('Resources/images/icon.png'))
 
         self._check_actual_settings_radio_buttons(game_settings)
         self.menuButton.clicked.connect(self._menu_btn_clicked)

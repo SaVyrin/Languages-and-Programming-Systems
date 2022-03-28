@@ -11,17 +11,23 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Пекинская опера</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="menuButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>7</y>
+      <x>650</x>
+      <y>70</y>
       <width>93</width>
-      <height>71</height>
+      <height>81</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Меню</string>
@@ -36,21 +42,33 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-top: 3px solid #111;</string>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Текущий счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Текущий счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>170</y>
+      <y>180</y>
       <width>161</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-top: 3px solid #111;</string>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Целевой счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Макс. счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="maxScoreLabel">
@@ -59,8 +77,15 @@
       <x>620</x>
       <y>210</y>
       <width>161</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-bottom: 3px solid #111;
+font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -72,23 +97,22 @@
       <x>620</x>
       <y>310</y>
       <width>161</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-bottom: 3px solid #111;
+font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>0</string>
     </property>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>70</y>
-      <width>531</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout"/>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -99,8 +123,14 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-top: 3px solid #111;</string>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Ходы:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ходы:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="movesLabel">
@@ -109,15 +139,35 @@
       <x>620</x>
       <y>410</y>
       <width>161</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(232, 228, 216, 0.95);
+border-left: 3px solid #111;
+border-right: 3px solid #111;
+border-bottom: 3px solid #111;
+font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;20&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>80</y>
+      <width>501</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout"/>
+   </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../../venv/Lib/site-packages/QtDesigner/bckg.qrc"/>
+ </resources>
  <connections/>
 </ui>

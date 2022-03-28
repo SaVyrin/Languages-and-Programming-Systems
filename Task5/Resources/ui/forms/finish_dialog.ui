@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Пекинская опера</string>
   </property>
   <widget class="QPushButton" name="menuButton">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>90</y>
+     <x>220</x>
+     <y>110</y>
      <width>121</width>
      <height>81</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="newGameButton">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>90</y>
+     <x>60</x>
+     <y>110</y>
      <width>131</width>
      <height>81</height>
     </rect>

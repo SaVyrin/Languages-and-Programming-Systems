@@ -1,10 +1,29 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtGui
 from PyQt5.QtWidgets import QLabel
 
 from .button import PushButton
 from .finish_dialog_controller import FinishDialog
 from ..game.game_controller import GameController
 from ..game.game_field_item import GameFieldItem
+
+game_style_sheet = """
+GameWindow {
+    border-image: url(Resources/images/game_bckg.jpg) 0 0 0 0 stretch stretch;
+}
+QPushButton#menuButton {
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 3px solid #111;
+}
+
+QPushButton#menuButton:hover {
+    background-color: rgba(183, 30, 28, 0.8);
+    border: 3px solid #111;
+}
+QPushButton#menuButton:pressed {
+    background-color: rgba(232, 228, 216, 0.8);
+    border: 3px solid #aaa;
+}
+"""
 
 
 class GameWindow(QtWidgets.QMainWindow):
@@ -16,13 +35,13 @@ class GameWindow(QtWidgets.QMainWindow):
         self.menu_window = menu_window
         uic.loadUi('Resources/ui/forms/game.ui', self)
 
+        self.setWindowIcon(QtGui.QIcon('Resources/images/icon.png'))
+        self.setStyleSheet(game_style_sheet)
+
         self._game_settings = game_settings
         self._game_controller: GameController = GameController(game_settings)
 
         self.menuButton.clicked.connect(self.menu_btn_clicked)
-        self.current_score_label.setStyleSheet("QLabel{font-size: 14pt; qproperty-alignment: AlignCenter;}")
-        self.maxScoreLabel.setStyleSheet("QLabel{font-size: 14pt; qproperty-alignment: AlignCenter;}")
-        self.movesLabel.setStyleSheet("QLabel{font-size: 14pt; qproperty-alignment: AlignCenter;}")
         self._grid_buttons = []
         self._init_game_elements()
         self._update_ui()
