@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Пекинская опера</string>
+   <string>京剧</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -30,7 +30,7 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Меню</string>
+     <string>菜单</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -49,7 +49,7 @@ border-right: 3px solid #111;
 border-top: 3px solid #111;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Текущий счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;往&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;来账户:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -68,7 +68,7 @@ border-right: 3px solid #111;
 border-top: 3px solid #111;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Макс. счёт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;最&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;高分:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="maxScoreLabel">
@@ -88,7 +88,7 @@ border-bottom: 3px solid #111;
 font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;〇&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="current_score_label">
@@ -111,7 +111,7 @@ border-bottom: 3px solid #111;
 font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>〇</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -130,7 +130,7 @@ border-right: 3px solid #111;
 border-top: 3px solid #111;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ходы:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;移&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;动次数:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="movesLabel">
@@ -150,7 +150,7 @@ border-bottom: 3px solid #111;
 font-size: 14pt; qproperty-alignment: AlignCenter;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;20&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;二&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:24px; color:#202124;&quot;&gt;十&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">

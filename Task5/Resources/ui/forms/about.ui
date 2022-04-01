@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Пекинская опера</string>
+   <string>京剧</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="menuButton">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Меню</string>
+     <string>菜单</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser">
@@ -45,9 +45,8 @@ border: 3px solid #111;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;О разработчике:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Сарайкин Алексей Алексеевич, ВГУ, ФКН, ИСиТ, 2 курс, &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;3 группа&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:18pt; color:#202124;&quot;&gt;关&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:18pt; color:#202124;&quot;&gt;于开发商:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;萨&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;雷金·阿列克谢·阿列克谢耶维奇&lt;/span&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;，&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;沃罗涅日国立大学&lt;/span&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;，&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;计算机科学学院&lt;/span&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;，&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;信息系统和技术&lt;/span&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;，&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt; 二门课程&lt;/span&gt;&lt;a name=&quot;tw-target-text&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;，&lt;/span&gt;&lt;span style=&quot; font-family:'inherit'; font-size:16pt; color:#202124;&quot;&gt;三组&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

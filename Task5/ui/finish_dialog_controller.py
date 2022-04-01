@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtGui
 
 finish_dialog_style_sheet = """
 QDialog {
@@ -26,6 +26,7 @@ class FinishDialog(QtWidgets.QDialog):
         uic.loadUi('Resources/ui/forms/finish_dialog.ui', self)
 
         self.setStyleSheet(finish_dialog_style_sheet)
+        self.setWindowIcon(QtGui.QIcon('Resources/images/icon.png'))
 
         self._parent = parent
         self.menuButton.clicked.connect(self._menu_btn_clicked)

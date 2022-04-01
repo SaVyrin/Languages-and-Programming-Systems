@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Пекинская опера</string>
+   <string>京剧</string>
   </property>
   <widget class="QPushButton" name="menuButton">
    <property name="geometry">
@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Вернуться в меню</string>
+    <string>返回菜单</string>
    </property>
   </widget>
   <widget class="QPushButton" name="newGameButton">
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Новая игра</string>
+    <string>新游戏</string>
    </property>
   </widget>
  </widget>
