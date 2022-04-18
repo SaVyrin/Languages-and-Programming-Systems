@@ -83,7 +83,9 @@ textarea {
 .editor_button {
     position: absolute;
     bottom: 65px;
-    left: 30%;
+    left: 35%;
+
+    cursor: pointer;
 
     background-color: #393939;
     color: #fdfdfd;
@@ -91,5 +93,29 @@ textarea {
 }
 
 .editor_button:focus {
+    border: 2px solid #6d6d6d;
+}
+
+#back_to_file_choosing {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+
+    width: 105px;
+    height: 18px;
+    position: absolute;
+    bottom: 65px;
+    left: 407px;
+
+    text-decoration: none;
+    text-align: center;
+    padding: auto;
+
+    background-color: #393939;
+    color: #fdfdfd;
+    border: 2px solid #4d4d4d;
+}
+
+#back_to_file_choosing:focus {
     border: 2px solid #6d6d6d;
 }

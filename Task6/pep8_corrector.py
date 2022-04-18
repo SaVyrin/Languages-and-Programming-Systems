@@ -25,6 +25,7 @@ class Pep8Corrector:
         self._text_lines = self._check_comments()
 
         self._text_lines = self._check_redundant_blank_lines()
+        self._text_lines = self._check_file_has_blank_lines_before_code()
         self._text_lines = self._check_def_blank_lines()
         self._text_lines = self._check_file_ending_with_blank_line()
 
@@ -152,6 +153,17 @@ class Pep8Corrector:
             if operands[0] != "class" and in_class and line[0] != " ":
                 in_class = False
 
+        return result_lines
+
+    def _check_file_has_blank_lines_before_code(self):
+        index_of_first_code_line = 0
+        result_lines = self._text_lines
+        for line in result_lines:
+            if line.isspace() or line == "":
+                index_of_first_code_line += 1
+            else:
+                break
+        result_lines = result_lines[index_of_first_code_line:]
         return result_lines
 
     def _check_parenthesis(self, parenthesis1, parenthesis2):

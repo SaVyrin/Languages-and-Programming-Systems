@@ -4,23 +4,21 @@
 <head>
     <meta charset="utf-8">
     <title>Тег TEXTAREA</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 
 <body>
-    <div class="pep8_checker">
-        <div class="mistakes_container">
-            <textarea class="mistakes" rows="10" cols="45" name="mistakes" readonly>{{ mistakes }}</textarea>
-        </div>
-        <div class="editor_container">
-            <textarea name="numeration" id="editor_numeration" cols="30" rows="10" class="editor_numeration" readonly>{{ lines_numeration }}</textarea>
-            <form class="editor_form" action="{{ url_for('index') }}" method="post">
-                <textarea class="editor" id="editor" rows="10" cols="45" name="text">{{ text }}</textarea>
-                <input class="editor_button" type="submit">
-            </form>
-        </div>
+    <div class="file_chooser">
+        <form action="/pep8_check" method="POST" enctype="multipart/form-data">
+            <span id="file_name">Выберите файл для проверки</span>
+            <img id="not_uploaded" src="{{ url_for('static', filename='images/upload.png') }}" class="upload-icon" />
+            <img id="uploaded" src="{{ url_for('static', filename='images/uploaded.png') }}" class="upload-icon" />
+            <input type="file" id="file-selector" name="file" />
+            <textarea id="text_to_send" style="display: none;" name="text"></textarea>
+            <input id="submit_button" type="submit" />
+        </form>
     </div>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>
