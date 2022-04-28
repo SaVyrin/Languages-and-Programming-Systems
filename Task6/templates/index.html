@@ -8,6 +8,27 @@
 </head>
 
 <body>
+    <div id="modal" class="modal">
+        <div class="modal_text_wrapper">
+            <div class="modal_text">
+                <div class="modal_text_header">Правила пользования:</div>
+                <div class="modal_main_text">
+                    <p>1. Нажмите на область загрузки файла.</p>
+                    <p>2. Выберите файл, который хотите проверить на соответствие
+                        стандарту pep8.</p>
+                    <p>3. Нажмите на кнопку "Отправить", чтобы перейти на страницу
+                        проверки.</p>
+                    <p>4. Если ваш файл соответствует стандарту, в левом окне вы увидите
+                        "Файл соответсвует стандартам pep8". В противном случае там будут
+                        выведены причины несоответствия.</p>
+                    <p>5. Если файл не соответствует стандарту, то его можно исправить
+                        в правом окне.</p>
+                    <p>6. для повторной проверки файла, нажмите "Проверить".</p>
+                    <p>7. Чтобы вернуться к выбору файла, нажмите "Выбрать файл".</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="file_chooser">
         <form action="/pep8_check" method="POST" enctype="multipart/form-data">
             <span id="file_name">Выберите файл для проверки</span>
@@ -19,6 +40,7 @@
         </form>
     </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
 </body>
 
 </html>
