@@ -1,5 +1,5 @@
-from Task6.pep8_corrector import Pep8Corrector
-from Task6.pep8_mistakes_checker import Pep8MistakesChecker
+from Pep8_standard_check_web_app.pep8_corrector import Pep8Corrector
+from Pep8_standard_check_web_app.pep8_mistakes_checker import Pep8MistakesChecker
 
 
 class Pep8Checker:

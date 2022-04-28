@@ -10,8 +10,8 @@
   <component name="PyNamespacePackagesService">
     <option name="namespacePackageFolders">
       <list>
-        <option value="$MODULE_DIR$/Task5" />
-        <option value="$MODULE_DIR$/Task6" />
+        <option value="$MODULE_DIR$/Game_Beijing_opera" />
+        <option value="$MODULE_DIR$/Pep8_standard_check_web_app" />
       </list>
     </option>
   </component>

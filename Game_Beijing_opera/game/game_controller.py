@@ -1,5 +1,5 @@
-from Task5.game.game import Game
-from Task5.ui.button import PushButton
+from Game_Beijing_opera.game.game import Game
+from Game_Beijing_opera.ui.button import PushButton
 
 
 class GameController:

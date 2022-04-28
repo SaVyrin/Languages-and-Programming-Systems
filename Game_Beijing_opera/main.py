@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from Task5.ui.menu_window_controller import MenuWindow
+from Game_Beijing_opera.ui.menu_window_controller import MenuWindow
 import sys
 
 

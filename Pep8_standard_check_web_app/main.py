@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from Task6.pep8_checker import Pep8Checker
+from Pep8_standard_check_web_app.pep8_checker import Pep8Checker
 
 app = Flask(__name__)
 
